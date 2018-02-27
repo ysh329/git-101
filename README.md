@@ -11,3 +11,6 @@ https://github.com/git-game/git-game
 3. git-game/git-game-v2: Second version of the terminal based game that teaches users git commands  
 https://github.com/git-game/git-game-v2
 
+4. Gazler/githug: Git your game on!  
+https://github.com/Gazler/githug
+
