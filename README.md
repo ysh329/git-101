@@ -3,7 +3,7 @@
 Start git with games:
 
 1. Learn Git Branching  
-https://learngitbranching.js.org/
+https://learngitbranching.js.org/  
 Note: `show solution` command may help!
 
 2. git-game/git-game: terminal game to test git skills  
