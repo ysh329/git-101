@@ -15,3 +15,11 @@ https://github.com/git-game/git-game-v2
 4. Gazler/githug: Git your game on!  
 https://github.com/Gazler/githug
 
+## Online
+
+1. git-school/visualizing-git: Visualize how common Git operations affect the commit graph  
+https://github.com/git-school/visualizing-git
+
+2. learngitbranching.js.org  
+https://learngitbranching.js.org/?NODEMO
+
