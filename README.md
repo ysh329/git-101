@@ -6,7 +6,7 @@ Start git with games:
 https://learngitbranching.js.org/  
 > Note: 
 >- `show solution` command may help!  
->- `levels` command select section  
+>- `levels` command selects section  
 >- `sandbox` command enters sandbox
 
 2. git-game/git-game: terminal game to test git skills  
