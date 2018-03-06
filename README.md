@@ -4,10 +4,10 @@ Start git with games:
 
 1. Learn Git Branching  
 https://learngitbranching.js.org/  
-> Note: 
->- `show solution` command may help!  
->- `levels` command selects section  
->- `sandbox` command enters sandbox
+- `show solution` command may help!  
+- `reset` command resets section!  
+- `levels` command selects section  
+- `sandbox` command enters sandbox
 
 2. git-game/git-game: terminal game to test git skills  
 https://github.com/git-game/git-game
