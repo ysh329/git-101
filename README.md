@@ -2,7 +2,7 @@
 
 Start git with games:
 
-1. Learn Git Branching  
+1. Learn Git Branching [NOTE](./Learn-Git-Branching/README.md)  
 https://learngitbranching.js.org/  
 - `show solution` command may help!  
 - `reset` command resets section!  
