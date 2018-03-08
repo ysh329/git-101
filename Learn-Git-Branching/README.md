@@ -40,7 +40,7 @@ git checkout -b <your-branch-name>
 
 咱们先来看一下第一种方法 —— `git merge`。在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个父节点。翻译成自然语言相当于：“我要把这两个父节点本身及它们所有的祖先都包含进来。”
 
-![git-rebase-01](.\git-rebase-01.png)
+![git-rebase-01](./assets\git-rebase-01.png)
 
 把 `bugFix` 合并到 `master` 里：
 
@@ -50,7 +50,7 @@ git merge bugFix
 
 
 
-![git-merge-02](.\git-merge-02.png)
+![git-merge-02](./assets\git-merge-02.png)
 
 `master` 现在指向了一个拥有两个父节点的提交记录。假如从 `master` 开始沿着箭头向上看，在到达起点的路上会经过所有的提交记录。这意味着 `master` 包含了对代码库的所有修改。
 
@@ -62,7 +62,7 @@ git merge bugFix
 git checkout bugFix; git merge master
 ```
 
-![git-merge-03](.\git-merge-03.png)
+![git-merge-03](./assets\git-merge-03.png)
 
 ### 1.4 Git rebase
 
@@ -70,7 +70,7 @@ git checkout bugFix; git merge master
 
 Rebase 的优势就是可以创造更线性的提交历史，这听上去有些难以理解。如果只允许使用 Rebase 的话，代码库的提交历史将会变得异常清晰。
 
-![git-rebase-01](.\git-rebase-01.png)
+![git-rebase-01](./assets\git-rebase-01.png)
 
 现在要把上图 bugFix 分支里的工作直接移到 master 分支上。移动以后会使得两个分支的功能看起来像是按顺序开发，但实际上它们是并行开发的。
 
@@ -82,7 +82,7 @@ git rebase master
 
 执行后效果如下：
 
-![git-rebase-02](.\git-rebase-02.png)
+![git-rebase-02](./assets\git-rebase-02.png)
 
 现在 bugFix 分支上的工作在 master 的最顶端，同时我们也得到了一个更线性的提交序列。
 
@@ -213,7 +213,7 @@ git reset HEAD~1
 
 Git 把 master 分支移回到 `C1`；现在我们的本地代码库根本就不知道有 `C2` 这个提交了。
 
-![git-reset-01](.\git-reset-01.png)
+![git-reset-01](./assets\git-reset-01.png)
 
 （译者注：在reset后， `C2` 所做的变更还在，但是处于未加入暂存区状态。）
 
@@ -227,7 +227,7 @@ Git 把 master 分支移回到 `C1`；现在我们的本地代码库根本就不
 git revert HEAD
 ```
 
-![git-reset-01](.\git-revert-01.png)
+![git-reset-01](./assets\git-revert-01.png)
 
 奇怪！在我们要撤销的提交记录后面居然多了一个新提交！这是因为新提交记录 `C2'` 引入了**更改** —— 这些更改刚好是用来撤销 `C2` 这个提交的。也就是说 `C2'` 的状态与 `C1` 是相同的。
 
@@ -255,7 +255,7 @@ git cherry-pick <提交号>...
 
 咱们还是通过例子来看一下！
 
-![git-cherry-pick-01](.\git-cherry-pick-01.png)
+![git-cherry-pick-01](./assets\git-cherry-pick-01.png)
 
 这里有一个仓库, 我们想将 `side` 分支上的工作复制到 `master` 分支，你立刻想到了之前学过的 `rebase` 了吧？但是咱们还是看看 `cherry-pick` 有什么本领吧。
 
@@ -265,7 +265,7 @@ git cherry-pick C2 C4
 
 这就是了！我们只需要提交记录 `C2` 和 `C4`，所以 Git 就将被它们抓过来放到当前分支下了。 就是这么简单!
 
-![git-cherry-pick-02](.\git-cherry-pick-02.png)
+![git-cherry-pick-02](./assets\git-cherry-pick-02.png)
 
 ### 3.2 交互式的 rebase
 
@@ -285,7 +285,7 @@ git cherry-pick C2 C4
 - 删除你不想要的提交（通过切换 `pick` 的状态来完成，关闭就意味着你不想要这个提交记录）
 - 合并提交。 遗憾的是由于某种逻辑的原因，我们的课程不支持此功能，因此我不会详细介绍这个操作。简而言之，它允许你把多个提交记录合并成一个。
 
-![git-rebase-i-01](.\git-rebase-i-01.png)
+![git-rebase-i-01](./assets\git-rebase-i-01.png)
 
 当执行下面命令时会出现一个交互对话框。对提交记录做个排序（当然你也可以删除某些提交）：
 
@@ -293,11 +293,11 @@ git cherry-pick C2 C4
 git rebase -i HEAD~4
 ```
 
-![git-rebase-i-03](.\git-rebase-i-03.png)
+![git-rebase-i-03](./assets\git-rebase-i-03.png)
 
 Git 严格按照你在对话框中指定的方式进行了复制。执行后得到如下结果：
 
-![git-rebase-i-02](.\git-rebase-i-02.png)
+![git-rebase-i-02](./assets\git-rebase-i-02.png)
 
 ## 4. 杂项
 
@@ -320,7 +320,7 @@ Git 技术、技巧与贴士大集合
 
 来达到目的。假设目前需要将下面的提交树中的bugFix重新接到master后，也就是说不要中间C2和C3的debug和printf分支。
 
-![git-only-one-commit-01](.\git-only-one-commit-01.png)
+![git-only-one-commit-01](./assets\git-only-one-commit-01.png)
 
 如果使用rebase命令，则用如下命令即可：
 
@@ -338,7 +338,7 @@ git cherry-pick C4 # 或 git cherry-pick bugFix
 
 执行结果：
 
-![git-only-one-commit-02](.\git-only-one-commit-02.png)
+![git-only-one-commit-02](./assets\git-only-one-commit-02.png)
 
 ### 4.2 提交的技巧 #1
 
@@ -357,7 +357,7 @@ git cherry-pick C4 # 或 git cherry-pick bugFix
 
 下图是起始时候的状态：
 
-![git-commit-skill1-01](.\git-commit-skill1-01.png)
+![git-commit-skill1-01](./assets\git-commit-skill1-01.png)
 
 要对newImage进行修改，保证caption的提交存在，并最终合并到master分支，用如下命令（当然该任务也可以用cherry-pick命令代替rebase，在下一小节会讲到）：
 
@@ -370,7 +370,7 @@ git branch -f master # 修改master分支到当前提交
 
 最终得到如下的提交树：
 
-![git-commit-skill1-02](.\git-commit-skill1-02.png)
+![git-commit-skill1-02](./assets\git-commit-skill1-02.png)
 
 ### 4.3 提交的技巧 #2
 
@@ -382,7 +382,7 @@ git branch -f master # 修改master分支到当前提交
 
 这次同样是解决上一小节中的问题，初始的提交树如下：
 
-![git-commit-skill1-01](.\git-commit-skill1-01.png)
+![git-commit-skill1-01](./assets\git-commit-skill1-01.png)
 
 经过下面的命令：
 
@@ -395,7 +395,7 @@ git cherry-pick caption
 
 最终我们得到的提交树为：
 
-![git-commit-skill2-01](.\git-commit-skill2-01.png)
+![git-commit-skill2-01](./assets\git-commit-skill2-01.png)
 
 ### 4.4 Git Tags
 
@@ -437,7 +437,7 @@ git describe <ref>
 
 当 `ref` 提交记录上有某个标签时，则只输出标签名称。
 
-![git-describe-01](.\git-describe-01.png)
+![git-describe-01](./assets\git-describe-01.png)
 
 对于上图的提交树来说，`git describe master` 会输出：
 
@@ -467,7 +467,7 @@ git describe <ref>
 
 废话不多说，举个例子。
 
-![git-uparrow-01](.\git-uparrow-01.png)
+![git-uparrow-01](./assets\git-uparrow-01.png)
 
 (*在我们的图示中，第一个父提交记录是指合并提交记录正上方的那个提交记录。*)
 
@@ -487,7 +487,7 @@ git checkout master^
 git checkout master^2
 ```
 
-![git-uparrow-02](.\git-uparrow-02.png)
+![git-uparrow-02](./assets\git-uparrow-02.png)
 
 看见了吧？我们回到了另外一个父提交上。
 
@@ -536,7 +536,7 @@ git checkout HEAD~^2~2
 
 直到现在, 教程都聚焦于**本地**仓库的操作（branch、merge、rebase 等等）。但我们现在需要学习远程仓库的操作 —— 我们需要一个配置这种环境的命令, 它就是 `git clone`。 从技术上来讲，`git clone` 命令在真实的环境下的作用是在**本地**创建一个远程仓库的拷贝（比如从 github.com）。 
 
-![git-clone-01](.\git-clone-01.png)
+![git-clone-01](./assets\git-clone-01.png)
 
 但在我们的教程中使用这个命令会有一些不同 —— 它会在远程创建一个你本地仓库的副本（除了远程仓库使用虚线之外, 它们几乎没有什么差别）。显然这和真实命令的意思刚好相反，但是它帮咱们把本地仓库和远程仓库关联到了一起，在教程中就凑合着用吧。
 
@@ -630,7 +630,7 @@ git fetch; git merge o/master
 
 我们用 `fetch` 下载了 `C3`, 然后通过 `git merge o/master` 合并了这一提交记录。
 
-![git-pull-01](.\git-pull-01.png)
+![git-pull-01](./assets\git-pull-01.png)
 
 现在我们的 `master` 分支包含了远程仓库中的更新（在本例中远程仓库名为 `origin`）
 
@@ -656,7 +656,7 @@ OK，我们已经学过了如何从远程仓库获取更新并合并到本地的
 
 *注意 —— git push 不带任何参数时的行为与 Git 的一个名为 push.default 的配置有关。它的默认值取决于你正使用的 Git 的版本，但是在教程中我们使用的是 upstream。 这没什么太大的影响，但是在你的项目中进行推送之前，最好检查一下这个配置。*
 
-![git-push-01](.\git-push-01.png)
+![git-push-01](./assets\git-push-01.png)
 
 这里我们准备了一些远程仓库中没有的提交记录, 咱们开始先上传吧!
 
@@ -666,7 +666,7 @@ git push
 
 过去了, 远程仓库接收了 `C2`，远程仓库中的 `master` 分支也被更新到指向 `C2` 了，我们的远程分支 (o/master) 也同样被更新了。所有的分支都同步了！
 
-![git-push-02](.\git-push-02.png)
+![git-push-02](./assets\git-push-02.png)
 
 ### 6.7 偏离的工作
 
@@ -684,7 +684,7 @@ git push
 
 有许多方法做到这一点呢，不过最直接的方法就是通过 rebase 调整你的工作。咱们继续，看看怎么 rebase！
 
-![git-history-rebase-01](.\git-history-rebase-01.png)
+![git-history-rebase-01](./assets\git-history-rebase-01.png)
 
 如果我们在 push 之前做 rebase 呢？
 
@@ -694,7 +694,7 @@ git fetch; git rebase o/master; git push
 
 
 
-![git-history-rebase-02](.\git-history-rebase-02.png)
+![git-history-rebase-02](./assets\git-history-rebase-02.png)
 
 我们用 `git fetch` 更新了本地仓库中的远程分支，然后用 rebase 将工们的工作移动到最新的提交记录下，最后再用 `git push` 推送到远程仓库。
 
@@ -706,13 +706,13 @@ git fetch; git rebase o/master; git push
 
 咱们们用 merge 替换 rebase 来试一下……
 
-![git-history-rebase-01](.\git-history-rebase-01.png)
+![git-history-rebase-01](./assets\git-history-rebase-01.png)
 
 ```shell
 git fetch; git merge o/master; git push
 ```
 
-![git-history-merge-02](.\git-history-merge-02.png)
+![git-history-merge-02](./assets\git-history-merge-02.png)
 
 我们用 `git fetch` 更新了本地仓库中的远程分支，然后**合并**了新变更到我们的本地分支（为了包含远程仓库的变更），最后我们用 `git push` 把工作推送到远程仓库。
 
@@ -751,7 +751,7 @@ git pull; git push
 
 #### 7.1.1 git pull --rebase
 
-![git-push-to-master-01](./git-push-to-master-01.png)
+![git-push-to-master-01](./assets/git-push-to-master-01.png)
 
 让我们看看如何快速的更新 `master` 分支并推送到远程。
 
@@ -759,7 +759,7 @@ git pull; git push
 git pull --rebase; git push
 ```
 
-![git-push-to-master-02](./git-push-to-master-02.png)
+![git-push-to-master-02](./assets/git-push-to-master-02.png)
 
 我们执行了两个命令:
 
@@ -825,7 +825,7 @@ git rebase BRANCH_BASE BRANCH_CHILD
 
 就可以创建一个名为 `totallyNotMaster` 的分支，它跟踪远程分支 `o/master`。
 
-![git-remote-tracking-01](./git-remote-tracking-01.png)
+![git-remote-tracking-01](./assets/git-remote-tracking-01.png)
 
 闲话少说，咱们先看看演示！我们检出一个名叫 `foo` 的新分支，让其跟踪远程仓库中的 `master`
 
@@ -835,7 +835,7 @@ git checkout -b foo o/master; git pull
 
 正如你所看到的, 我们使用了隐含的目标 `o/master` 来更新 `foo` 分支。需要注意的是 master 并未被更新！
 
-![git-remote-tracking-02](./git-remote-tracking-02.png)
+![git-remote-tracking-02](./assets/git-remote-tracking-02.png)
 
 git push 同样适用
 
@@ -891,13 +891,13 @@ git push origin master
 
 我们看看指定参数的例子。注意下我们当前检出的位置。
 
-![git-pull-param-01](./git-pull-param-01.png)
+![git-pull-param-01](./assets/git-pull-param-01.png)
 
 ```shell
 git checkout C0; git push origin master
 ```
 
-![git-pull-param-02](./git-pull-param-02.png)
+![git-pull-param-02](./assets/git-pull-param-02.png)
 
 好了! 通过指定参数, 远程仓库中的 `master` 分支得到了更新。
 
@@ -927,7 +927,7 @@ git checkout C0; git push
 >
 > 一旦你指定了独立的来源和目的地，就可以组织出言简意赅的远程操作命令了，让我们看看演示！
 
-![git-push-param-01](./git-push-param-01.png)
+![git-push-param-01](./assets/git-push-param-01.png)
 
 记住，`source` 可以是任何 Git 能识别的位置：
 
@@ -935,7 +935,7 @@ git checkout C0; git push
 git push origin foo^:master
 ```
 
-![git-push-param-02](./git-push-param-02.png)
+![git-push-param-02](./assets/git-push-param-02.png)
 
 这是个另人困惑的命令，但是它确实是可以运行的 —— Git 将 `foo^` 解析为一个位置，上传所有未被包含到远程仓库里 `master` 分支中的提交记录。
 
