@@ -1,5 +1,7 @@
 # git-101
 
+## Game
+
 Start git with games:
 
 1. Learn Git Branching [NOTE](./Learn-Git-Branching/README.md)  
@@ -25,4 +27,15 @@ https://github.com/git-school/visualizing-git
 
 2. learngitbranching.js.org  
 https://learngitbranching.js.org/?NODEMO
+
+## Tool
+
+1. tj/git-extras: GIT utilities -- repo summary, repl, changelog population, author commit percentages and more  
+https://github.com/tj/git-extras
+
+2. so-fancy/diff-so-fancy: Good-lookin' diffs. Actually… nah… The best-lookin' diffs.  
+https://github.com/so-fancy/diff-so-fancy
+
+
+
 
