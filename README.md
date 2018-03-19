@@ -20,6 +20,11 @@ https://github.com/git-game/git-game-v2
 4. Gazler/githug: Git your game on!  
 https://github.com/Gazler/githug
 
+## Book
+
+- progit/progit2: Pro Git 2nd Edition  
+https://github.com/progit/progit2
+
 ## Online
 
 1. git-school/visualizing-git: Visualize how common Git operations affect the commit graph  
